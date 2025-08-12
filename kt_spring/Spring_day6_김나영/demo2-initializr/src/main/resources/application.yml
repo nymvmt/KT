@@ -1,0 +1,19 @@
+# Server configuration
+server:
+  port: 8080
+
+# Spring application configuration
+spring:
+  application:
+    name: my-spring-boot-app
+  thymeleaf:
+    cache: false
+
+# Application custom properties
+app:
+  welcome-message: "Welcome to My Spring Boot Application!"
+
+# Logging configuration
+logging:
+  level:
+    com.example: INFO

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필</title>
+</head>
+<body>
+    <h1 th:text="${myName}">이름</h1>
+    <p th:text="${myHobby}">취미</p>
+    <div th:each="item : ${favorites}">
+        <span th:text="${item}">항목1</span>
+        <span th:text="${item}">항목2</span>
+    </div>
+</body>
+</html>

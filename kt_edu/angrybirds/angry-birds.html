@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angry Birds Game</title>
+    <link rel="stylesheet" href="angry-birds.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Angry Birds</h1>
+            <div class="game-info">
+                <div class="score">점수: <span id="score">0</span></div>
+                <div class="birds-left">새: <span id="birds-left">3</span></div>
+                <div class="level">레벨: <span id="level">1</span></div>
+            </div>
+            <div class="best-records">
+                <div class="best-score">최고 점수: <span id="best-score">0</span></div>
+                <div class="best-level">최고 레벨: <span id="best-level">1</span></div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <canvas id="gameCanvas" width="1000" height="600"></canvas>
+            
+            <div class="game-controls">
+                <button id="start-btn" class="game-btn">게임 시작</button>
+                <button id="reset-btn" class="game-btn">다시 시작</button>
+                <button id="leaderboard-btn" class="game-btn">순위표</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 이미지 프리로드 -->
+    <div style="display: none;">
+        <img id="bird-img" src="angrybird.png" alt="Angry Bird">
+        <img id="pig-img" src="greenpig.png" alt="Green Pig">
+        <img id="background-img" src="angrybird_background.jpg" alt="Background">
+    </div>
+    
+    <script src="angry-birds.js"></script>
+</body>
+</html> 

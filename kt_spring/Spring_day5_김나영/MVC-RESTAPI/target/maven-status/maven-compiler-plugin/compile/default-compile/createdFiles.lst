@@ -1,0 +1,14 @@
+com/example/App.class
+com/example/repository/UserProfileRepository.class
+com/example/config/DatabaseConfig.class
+com/example/repository/UserRepository.class
+com/example/repository/UserRepository$1.class
+com/example/repository/WelcomeMessageRepository.class
+com/example/service/UserService.class
+com/example/config/WebConfig.class
+com/example/controller/HomeController.class
+com/example/model/UserProfile.class
+com/example/model/User.class
+com/example/controller/UserController.class
+com/example/config/WebAppInitializer.class
+com/example/model/WelcomeMessage.class

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 등록</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 1.1em;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        .btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        .btn-secondary {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-secondary:hover {
+            box-shadow: 0 6px 20px rgba(149, 165, 166, 0.4);
+        }
+        .form-buttons {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+        }
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        .field-error {
+            border-color: #e74c3c !important;
+        }
+        .test-guide {
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        .test-guide h3 {
+            color: #3498db;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .test-scenarios {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .scenario {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+        }
+        .scenario h4 {
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        .scenario ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+        .scenario li {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .test-scenarios {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 상품 등록</h1>
+        
+        <form id="productForm" action="/Product/product/add" method="post">
+            
+            <div class="form-group">
+                <label for="name">상품명 <span class="required">*</span></label>
+                <input type="text" id="name" name="name" placeholder="상품명을 입력하세요">
+                <div class="error" id="nameError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="price">가격 <span class="required">*</span></label>
+                <input type="number" id="price" name="price" min="1" placeholder="가격을 입력하세요 (원)">
+                <div class="error" id="priceError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">상품 설명 <span class="required">*</span></label>
+                <textarea id="description" name="description" placeholder="상품에 대한 상세한 설명을 입력하세요"></textarea>
+                <div class="error" id="descriptionError"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">카테고리 <span class="required">*</span></label>
+                <select id="category" name="category">
+                    <option value="">-- 카테고리를 선택하세요 --</option>
+                    <option value="electronics">전자제품</option>
+                    <option value="clothing">의류</option>
+                    <option value="books">도서</option>
+                    <option value="home">생활용품</option>
+                    <option value="sports">스포츠</option>
+                </select>
+                <div class="error" id="categoryError"></div>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit" class="btn">등록하기</button>
+                <a href="/Product/home.html" class="btn btn-secondary">취소</a>
+            </div>
+        </form>
+        
+        <div class="test-guide">
+            <h3>🧪 검증 테스트 가이드</h3>
+            <div class="test-scenarios">
+                <div class="scenario">
+                    <h4>🔍 기본 검증 테스트</h4>
+                    <ul>
+                        <li>모든 필드를 비운 채로 등록</li>
+                        <li>가격에 0 또는 음수 입력</li>
+                        <li>필수 필드별 개별 테스트</li>
+                    </ul>
+                </div>
+                <div class="scenario">
+                    <h4>🎯 커스텀 검증 테스트</h4>
+                    <ul>
+                        <li>상품명에 <strong>"금지어"</strong> 포함</li>
+                        <li>카테고리 <strong>"전자제품"</strong> + 가격 <strong>10,000원 미만</strong></li>
+                        <li>비즈니스 로직 검증 확인</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 클라이언트 사이드 기본 검증 (서버 검증과 별도)
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            let isValid = true;
+            
+            // 에러 초기화
+            document.querySelectorAll('.error').forEach(error => {
+                error.style.display = 'none';
+                error.textContent = '';
+            });
+            document.querySelectorAll('input, textarea, select').forEach(field => {
+                field.classList.remove('field-error');
+            });
+            
+            // 상품명 검증
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                showError('name', '상품명을 입력해주세요');
+                isValid = false;
+            }
+            
+            // 가격 검증
+            const price = document.getElementById('price').value;
+            if (!price) {
+                showError('price', '가격을 입력해주세요');
+                isValid = false;
+            } else if (parseInt(price) <= 0) {
+                showError('price', '가격은 0보다 커야 합니다');
+                isValid = false;
+            }
+            
+            // 설명 검증
+            const description = document.getElementById('description').value.trim();
+            if (!description) {
+                showError('description', '상품 설명을 입력해주세요');
+                isValid = false;
+            }
+            
+            // 카테고리 검증
+            const category = document.getElementById('category').value;
+            if (!category) {
+                showError('category', '카테고리를 선택해주세요');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+        
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + 'Error');
+            
+            field.classList.add('field-error');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
