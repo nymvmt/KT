@@ -1,7 +1,0 @@
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:20:36 +0900] "GET /book/search?keyword=íê¸íì¤í¸ HTTP/1.1" 200 2768 http-bio-8080-exec-1 212
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:22:45 +0900] "GET / HTTP/1.1" 200 2067 http-bio-8080-exec-3 10
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:22:45 +0900] "GET /css/style.css HTTP/1.1" 200 7362 http-bio-8080-exec-5 12
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:22:49 +0900] "GET /css/style.css HTTP/1.1" 200 7362 http-bio-8080-exec-6 2
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:22:49 +0900] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 949 http-bio-8080-exec-7 2
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:23:38 +0900] "GET / HTTP/1.1" 200 2067 http-bio-8080-exec-8 24
-0:0:0:0:0:0:0:1 - - [06/Aug/2025:11:23:38 +0900] "GET /css/style.css HTTP/1.1" 200 7362 http-bio-8080-exec-9 2
